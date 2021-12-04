@@ -12,7 +12,16 @@ public abstract class MaterialBase
 
     protected MaterialBase(string sourceDirectory, string embeddedPath, MapFileSelector selector)
     {
+        var dir = embeddedPath + Path.GetFileName(sourceDirectory) + "/";
+        var filenames = selector.SelectMapFiles(sourceDirectory);
 
+        BaseColor = dir + filenames.BaseColor;
+        Normal = dir + filenames.Normal;
+        Roughness = dir + filenames.Roughness;
+        Metallic = dir + filenames.Metallic;
+        Height = dir + filenames.Height;
+        AmbientOcclusion = dir + filenames.AmbientOcclusion;
+        Specular = dir + filenames.Specular;
     }
 
     public abstract void Write(string path);
