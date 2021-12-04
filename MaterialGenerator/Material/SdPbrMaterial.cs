@@ -10,11 +10,8 @@ public class SdPbrMaterial
     public string? AmbientOcclusion { get; private set; }
     public string? Specular { get; private set; }
 
-    public SdPbrMaterial(string sourceDirectory, string embeddedPath, MapFileSelector selector) : this(sourceDirectory, embeddedPath, selector, new()) { }
-
-    public SdPbrMaterial(string sourceDirectory, string embeddedPath, MapFileSelector selector, MaterialOptions options)
+    public SdPbrMaterial(string sourceDirectory, string embeddedPath, MapFileSelector selector)
     {
-
     }
 
     public void Write(string path)
