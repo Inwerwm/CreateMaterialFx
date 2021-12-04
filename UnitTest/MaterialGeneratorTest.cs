@@ -7,6 +7,6 @@ public class MaterialGeneratorTest
     [TestMethod]
     public void TestGenerate()
     {
-
+        var generator = new MaterialFileGenerator();
     }
 }
