@@ -1,4 +1,6 @@
-﻿namespace MaterialGenerator;
+﻿using System.Text.RegularExpressions;
+
+namespace MaterialGenerator;
 public class MapFileSelector
 {
     public NamePattern NamePattern { get; }
@@ -22,19 +24,28 @@ public class MapFileSelector
         NamePattern = namePattern;
     }
 
-    public MapFiles SelectMapFiles(string sourceDirectoryPath) => new()
+    public MapFiles SelectMapFiles(string sourceDirectoryPath)
     {
-        BaseColor = SelectMapFile(NamePattern.BaseColor, sourceDirectoryPath),
-        Normal = SelectMapFile(NamePattern.Normal, sourceDirectoryPath),
-        Height = SelectMapFile(NamePattern.Height, sourceDirectoryPath),
-        Metallic = SelectMapFile(NamePattern.Metallic, sourceDirectoryPath),
-        Roughness = SelectMapFile(NamePattern.Roughness, sourceDirectoryPath),
-        AmbientOcclusion = SelectMapFile(NamePattern.AmbientOcclusion, sourceDirectoryPath),
-        Specular = SelectMapFile(NamePattern.Specular, sourceDirectoryPath)
-    };
+        if (!Directory.Exists(sourceDirectoryPath)) throw new DirectoryNotFoundException($"Directory not found: {sourceDirectoryPath}");
 
-    private string? SelectMapFile(IEnumerable<string> pattern, string sourcePath)
+        return new()
+        {
+            BaseColor = SelectMapFile(NamePattern.BaseColor, sourceDirectoryPath),
+            Normal = SelectMapFile(NamePattern.Normal, sourceDirectoryPath),
+            Height = SelectMapFile(NamePattern.Height, sourceDirectoryPath),
+            Metallic = SelectMapFile(NamePattern.Metallic, sourceDirectoryPath),
+            Roughness = SelectMapFile(NamePattern.Roughness, sourceDirectoryPath),
+            AmbientOcclusion = SelectMapFile(NamePattern.AmbientOcclusion, sourceDirectoryPath),
+            Specular = SelectMapFile(NamePattern.Specular, sourceDirectoryPath)
+        };
+    }
+
+    private string? SelectMapFile(IEnumerable<string> patterns, string sourcePath)
     {
-        throw new NotImplementedException();
+        var files = Directory.EnumerateFiles(sourcePath).Select(path => Path.GetFileName(path));
+        var pattern = $"({string.Join("|", patterns)})";
+        var regex = new Regex(pattern, RegexOptions.IgnoreCase);
+
+        return files.FirstOrDefault(filename => regex.IsMatch(filename));
     }
 }
