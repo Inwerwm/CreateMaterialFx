@@ -8,16 +8,7 @@ public class MaterialGeneratorTest
     [TestMethod]
     public void TestGenerate()
     {
-        MapFileSelector selector = new(new NamePattern() {
-            BaseColor = new[] { "diffuse", "basecolor", "base_color", "albedo" },
-            Normal = new[] { "normal" },
-            Height = new[] { "height" },
-            Metallic = new[] { "metallic", "metallness" },
-            Roughness = new[] { "roughness", "smoothness" },
-            AmbientOcclusion = new[] { "ambientocclusion", "ambient_occlusion" },
-            Specular = new[] { "specular", "glossiness" }
-        });
-        SdPbrMaterial aluminium = new(TestData.Get("Source/Aluminium"), "../../../../_JulioSillet/Map/", selector);
+        SdPbrMaterial aluminium = new(TestData.Get("Source/Aluminium"), "../../../../_JulioSillet/Map/", new MapFileSelector());
 
         aluminium.Write(TestData.Get("Result/Aluminium.fx"));
 
