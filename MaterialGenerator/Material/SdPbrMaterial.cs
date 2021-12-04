@@ -1,20 +1,10 @@
 ﻿namespace MaterialGenerator.Material;
 
-public class SdPbrMaterial
+public class SdPbrMaterial : MaterialBase
 {
-    public string? BaseColor { get; private set; }
-    public string? Normal { get; private set; }
-    public string? Roughness { get; private set; }
-    public string? Metallic { get; private set; }
-    public string? Height { get; private set; }
-    public string? AmbientOcclusion { get; private set; }
-    public string? Specular { get; private set; }
+    public SdPbrMaterial(string sourceDirectory, string embeddedPath, MapFileSelector selector) : base(sourceDirectory, embeddedPath, selector) { }
 
-    public SdPbrMaterial(string sourceDirectory, string embeddedPath, MapFileSelector selector)
-    {
-    }
-
-    public void Write(string path)
+    public override void Write(string path)
     {
         throw new NotImplementedException();
     }
