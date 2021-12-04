@@ -57,4 +57,19 @@ void SetMaterialParam(inout Material m, float3 n,float3 l, float3 Eye, float2 uv
 
 #include ""../../shader/sdPBRMaterialTail.fxsub""", aluminiumMaterial);
     }
+
+    [TestMethod]
+    public void TestSelectMap()
+    {
+        var selector = new MapFileSelector();
+        var maps = selector.SelectMapFiles(TestData.Get("Source/Aluminium"));
+        
+        Assert.AreEqual("Aluminium_baseColor.png", maps.BaseColor);
+        Assert.AreEqual("Aluminium_normal.png", maps.Normal);
+        Assert.AreEqual("Aluminium_height.png", maps.Height);
+        Assert.IsNull(maps.Metallic);
+        Assert.AreEqual("Aluminium_roughness.png", maps.Roughness);
+        Assert.AreEqual("Aluminium_ambientOcclusion.png", maps.AmbientOcclusion);
+        Assert.IsNull(maps.Specular);
+    }
 }

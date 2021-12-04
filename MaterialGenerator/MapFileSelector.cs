@@ -21,4 +21,20 @@ public class MapFileSelector
     {
         NamePattern = namePattern;
     }
+
+    public MapFiles SelectMapFiles(string sourceDirectoryPath) => new()
+    {
+        BaseColor = SelectMapFile(NamePattern.BaseColor, sourceDirectoryPath),
+        Normal = SelectMapFile(NamePattern.Normal, sourceDirectoryPath),
+        Height = SelectMapFile(NamePattern.Height, sourceDirectoryPath),
+        Metallic = SelectMapFile(NamePattern.Metallic, sourceDirectoryPath),
+        Roughness = SelectMapFile(NamePattern.Roughness, sourceDirectoryPath),
+        AmbientOcclusion = SelectMapFile(NamePattern.AmbientOcclusion, sourceDirectoryPath),
+        Specular = SelectMapFile(NamePattern.Specular, sourceDirectoryPath)
+    };
+
+    private string? SelectMapFile(IEnumerable<string> pattern, string sourcePath)
+    {
+        throw new NotImplementedException();
+    }
 }
