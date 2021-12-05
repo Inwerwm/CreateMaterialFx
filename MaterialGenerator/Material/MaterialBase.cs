@@ -3,6 +3,7 @@
 public abstract class MaterialBase
 {
     public string? BaseColor { get; private set; }
+    public string? SubSurface { get; private set; }
     public string? Normal { get; private set; }
     public string? Roughness { get; private set; }
     public string? Specular { get; private set; }
@@ -16,6 +17,7 @@ public abstract class MaterialBase
         var filenames = selector.SelectMapFiles(sourceDirectory);
 
         BaseColor = MakePath(filenames.BaseColor);
+        SubSurface = MakePath(filenames.SubSurface);
         Normal = MakePath(filenames.Normal);
         Roughness = MakePath(filenames.Roughness);
         Specular = MakePath(filenames.Specular);

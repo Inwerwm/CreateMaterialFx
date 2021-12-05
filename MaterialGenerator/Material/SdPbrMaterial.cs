@@ -47,7 +47,13 @@ void SetMaterialParam(inout Material m, float3 n,float3 l, float3 Eye, float2 uv
             str.AppendLine($"#define BASECOLOR_FILE \"{BaseColor}\"");
             str.Append(Environment.NewLine);
         }
-        if(Normal != null)
+        if(SubSurface != null)
+        {
+            str.AppendLine("#define SUBSURFACE_FROM SUBSURFACE_FROM_FILE");
+            str.AppendLine($"#define SUBSURFACE_FILE \"{SubSurface}\"");
+            str.Append(Environment.NewLine);
+        }
+        if (Normal != null)
         {
             str.AppendLine("#define NORMAL_FROM NORMAL_FROM_FILE");
             str.AppendLine($"#define NORMAL_FILE \"{Normal}\"");

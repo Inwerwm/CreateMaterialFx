@@ -10,6 +10,7 @@ public class MapFileSelector
         NamePattern = new()
         {
             BaseColor = new[] { "diffuse", "basecolor", "base_color", "albedo" },
+            SubSurface = new[] { "scattering" },
             Normal = new[] { "normal" },
             Roughness = new[] { "roughness", "smoothness" },
             Specular = new[] { "specular", "glossiness" },
@@ -31,6 +32,7 @@ public class MapFileSelector
         return new()
         {
             BaseColor = SelectMapFile(NamePattern.BaseColor, sourceDirectoryPath),
+            SubSurface = SelectMapFile(NamePattern.SubSurface, sourceDirectoryPath),
             Normal = SelectMapFile(NamePattern.Normal, sourceDirectoryPath),
             Roughness = SelectMapFile(NamePattern.Roughness, sourceDirectoryPath),
             Specular = SelectMapFile(NamePattern.Specular, sourceDirectoryPath),

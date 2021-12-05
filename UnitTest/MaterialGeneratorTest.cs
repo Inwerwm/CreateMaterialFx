@@ -65,6 +65,7 @@ void SetMaterialParam(inout Material m, float3 n,float3 l, float3 Eye, float2 uv
         var maps = selector.SelectMapFiles(TestData.Get(@"Source\Aluminium"));
         
         Assert.AreEqual("Aluminium_baseColor.png", maps.BaseColor);
+        Assert.IsNull(maps.SubSurface);
         Assert.AreEqual("Aluminium_normal.png", maps.Normal);
         Assert.AreEqual("Aluminium_roughness.png", maps.Roughness);
         Assert.IsNull(maps.Specular);

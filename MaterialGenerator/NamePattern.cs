@@ -9,6 +9,7 @@ namespace MaterialGenerator;
 public record NamePattern
 {
     public IEnumerable<string> BaseColor { get; init; } = Enumerable.Empty<string>();
+    public IEnumerable<string> SubSurface { get; init; } = Enumerable.Empty<string>();
     public IEnumerable<string> Normal { get; init; } = Enumerable.Empty<string>();
     public IEnumerable<string> Roughness { get; init; } = Enumerable.Empty<string>();
     public IEnumerable<string> Specular { get; init; } = Enumerable.Empty<string>();
