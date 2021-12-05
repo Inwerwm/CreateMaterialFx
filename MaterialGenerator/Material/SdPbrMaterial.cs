@@ -7,8 +7,10 @@ public class SdPbrMaterial : MaterialBase
     private static bool IsShiftJisRegistered { get; set; } = false;
     public SdPbrMaterial(string sourceDirectory, string embeddedPath, MapFileSelector selector) : base(sourceDirectory, embeddedPath, selector) { }
 
-    public override void Write(string path)
+    public void Write(string path, bool enableOverWrite = false)
     {
+        if (!enableOverWrite && File.Exists(path)) return;
+
         if (!IsShiftJisRegistered)
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
