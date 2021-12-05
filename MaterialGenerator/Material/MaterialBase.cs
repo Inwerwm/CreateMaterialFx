@@ -13,7 +13,7 @@ public abstract class MaterialBase
 
     protected MaterialBase(string sourceDirectory, string embeddedPath, MapFileSelector selector)
     {
-        var dir = embeddedPath + Path.GetFileName(sourceDirectory) + "/";
+        var dir = embeddedPath + (embeddedPath.LastOrDefault() == '/' ? "" : "/") + Path.GetFileName(sourceDirectory) + "/";
         var filenames = selector.SelectMapFiles(sourceDirectory);
 
         BaseColor = MakePath(filenames.BaseColor);

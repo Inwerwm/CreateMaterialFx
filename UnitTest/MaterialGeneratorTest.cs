@@ -8,7 +8,7 @@ public class MaterialGeneratorTest
     [TestMethod]
     public void TestGenerate()
     {
-        SdPbrMaterial aluminium = new(TestData.Get("Source/Aluminium"), "../../../../_JulioSillet/Map/", new MapFileSelector());
+        SdPbrMaterial aluminium = new(TestData.Get("Source/Aluminium"), "../../../../_JulioSillet/Map", new MapFileSelector());
 
         aluminium.Write(TestData.Get("Result/Aluminium.fx"));
 
