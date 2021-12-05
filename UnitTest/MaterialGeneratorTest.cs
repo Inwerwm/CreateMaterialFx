@@ -10,7 +10,7 @@ public class MaterialGeneratorTest
     {
         SdPbrMaterial aluminium = new(TestData.Get("Source/Aluminium"), "../../../../_JulioSillet/Map", new MapFileSelector());
 
-        aluminium.Write(TestData.Get("Result/Aluminium.fx"));
+        aluminium.Write(TestData.Get("Result/Aluminium.fx"), true);
 
         Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
         var aluminiumMaterial = File.ReadAllText(TestData.Get("Result/Aluminium.fx"), Encoding.GetEncoding("Shift_JIS"));
