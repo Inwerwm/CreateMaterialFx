@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest", "UnitTest\UnitTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialGenerator", "MaterialGenerator\MaterialGenerator.csproj", "{4477CAFA-59BE-47D1-8601-2F62D5B507F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateMaterialFx", "CreateMaterialFx\CreateMaterialFx.csproj", "{EAD32346-C881-4356-AE37-FB133C9BB21C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4477CAFA-59BE-47D1-8601-2F62D5B507F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4477CAFA-59BE-47D1-8601-2F62D5B507F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4477CAFA-59BE-47D1-8601-2F62D5B507F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAD32346-C881-4356-AE37-FB133C9BB21C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAD32346-C881-4356-AE37-FB133C9BB21C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAD32346-C881-4356-AE37-FB133C9BB21C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAD32346-C881-4356-AE37-FB133C9BB21C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
