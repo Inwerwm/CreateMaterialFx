@@ -15,13 +15,15 @@ public abstract class MaterialBase
         var dir = embeddedPath + Path.GetFileName(sourceDirectory) + "/";
         var filenames = selector.SelectMapFiles(sourceDirectory);
 
-        BaseColor = dir + filenames.BaseColor;
-        Normal = dir + filenames.Normal;
-        Roughness = dir + filenames.Roughness;
-        Specular = dir + filenames.Specular;
-        Metallic = dir + filenames.Metallic;
-        Height = dir + filenames.Height;
-        AmbientOcclusion = dir + filenames.AmbientOcclusion;
+        BaseColor = MakePath(filenames.BaseColor);
+        Normal = MakePath(filenames.Normal);
+        Roughness = MakePath(filenames.Roughness);
+        Specular = MakePath(filenames.Specular);
+        Metallic = MakePath(filenames.Metallic);
+        Height = MakePath(filenames.Height);
+        AmbientOcclusion = MakePath(filenames.AmbientOcclusion);
+
+        string? MakePath(string? filename) => filename is null ? null : dir + filename;
     }
 
     public abstract void Write(string path);
