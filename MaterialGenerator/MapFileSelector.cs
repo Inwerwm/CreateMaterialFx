@@ -7,7 +7,7 @@ public class MapFileSelector
 
     public MapFileSelector()
     {
-        NamePattern = new NamePattern()
+        NamePattern = new()
         {
             BaseColor = new[] { "diffuse", "basecolor", "base_color", "albedo" },
             Normal = new[] { "normal" },
