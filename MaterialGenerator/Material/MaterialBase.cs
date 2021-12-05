@@ -7,8 +7,8 @@ public abstract class MaterialBase
     public string? Roughness { get; private set; }
     public string? Specular { get; private set; }
     public string? Metallic { get; private set; }
-    public string? Height { get; private set; }
     public string? AmbientOcclusion { get; private set; }
+    public string? Height { get; private set; }
 
     protected MaterialBase(string sourceDirectory, string embeddedPath, MapFileSelector selector)
     {
@@ -20,8 +20,8 @@ public abstract class MaterialBase
         Roughness = MakePath(filenames.Roughness);
         Specular = MakePath(filenames.Specular);
         Metallic = MakePath(filenames.Metallic);
-        Height = MakePath(filenames.Height);
         AmbientOcclusion = MakePath(filenames.AmbientOcclusion);
+        Height = MakePath(filenames.Height);
 
         string? MakePath(string? filename) => filename is null ? null : dir + filename;
     }

@@ -11,11 +11,11 @@ public class MapFileSelector
         {
             BaseColor = new[] { "diffuse", "basecolor", "base_color", "albedo" },
             Normal = new[] { "normal" },
-            Height = new[] { "height" },
-            Metallic = new[] { "metallic", "metallness" },
             Roughness = new[] { "roughness", "smoothness" },
+            Specular = new[] { "specular", "glossiness" },
+            Metallic = new[] { "metallic", "metallness" },
             AmbientOcclusion = new[] { "ambientocclusion", "ambient_occlusion" },
-            Specular = new[] { "specular", "glossiness" }
+            Height = new[] { "height" },
         };
     }
 
@@ -32,11 +32,11 @@ public class MapFileSelector
         {
             BaseColor = SelectMapFile(NamePattern.BaseColor, sourceDirectoryPath),
             Normal = SelectMapFile(NamePattern.Normal, sourceDirectoryPath),
-            Height = SelectMapFile(NamePattern.Height, sourceDirectoryPath),
-            Metallic = SelectMapFile(NamePattern.Metallic, sourceDirectoryPath),
             Roughness = SelectMapFile(NamePattern.Roughness, sourceDirectoryPath),
+            Specular = SelectMapFile(NamePattern.Specular, sourceDirectoryPath),
+            Metallic = SelectMapFile(NamePattern.Metallic, sourceDirectoryPath),
             AmbientOcclusion = SelectMapFile(NamePattern.AmbientOcclusion, sourceDirectoryPath),
-            Specular = SelectMapFile(NamePattern.Specular, sourceDirectoryPath)
+            Height = SelectMapFile(NamePattern.Height, sourceDirectoryPath),
         };
     }
 
