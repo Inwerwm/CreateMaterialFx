@@ -4,11 +4,17 @@ namespace MaterialGenerator.Material;
 
 public class SdPbrMaterial : MaterialBase
 {
+    private static bool IsShiftJisRegistered { get; set; } = false;
     public SdPbrMaterial(string sourceDirectory, string embeddedPath, MapFileSelector selector) : base(sourceDirectory, embeddedPath, selector) { }
 
     public override void Write(string path)
     {
-        File.WriteAllText(path, GenerateCode());
+        if (!IsShiftJisRegistered)
+        {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            IsShiftJisRegistered = true;
+        }
+        File.WriteAllText(path, GenerateCode(), Encoding.GetEncoding("Shift_JIS"));
     }
 
     private string GenerateCode()
