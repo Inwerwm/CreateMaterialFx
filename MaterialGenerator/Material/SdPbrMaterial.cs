@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 
 namespace MaterialGenerator.Material;
 
@@ -7,7 +7,7 @@ public class SdPbrMaterial : MaterialBase
     private static bool IsShiftJisRegistered { get; set; } = false;
     public SdPbrMaterial(string sourceDirectory, string embeddedPath, MapFileSelector selector) : base(sourceDirectory, embeddedPath, selector) { }
 
-    public void Write(string path, bool enableOverWrite = false)
+    public override void Write(string path, bool enableOverWrite = false)
     {
         if (!enableOverWrite && File.Exists(path)) return;
 

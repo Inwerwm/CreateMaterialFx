@@ -28,5 +28,5 @@ public abstract class MaterialBase
         string? MakePath(string? filename) => filename is null ? null : dir + filename;
     }
 
-    public abstract void Write(string path);
+    public abstract void Write(string path, bool enableOverWrite);
 }
