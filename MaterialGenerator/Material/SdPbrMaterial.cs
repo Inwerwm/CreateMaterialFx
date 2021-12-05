@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 
 namespace MaterialGenerator.Material;
 
@@ -42,9 +42,9 @@ void SetMaterialParam(inout Material m, float3 n,float3 l, float3 Eye, float2 uv
     m.normalScale = 1.0;
     m.roughness = 1.0;
     m.specular = 1.0;
-    m.metallic = 1.0;
+    m.metallic = 0.0;
     m.aoScale = 1.0;
-    m.heightScale = 0.001;
+    m.heightScale = 0.005;
 }
 
 ");
