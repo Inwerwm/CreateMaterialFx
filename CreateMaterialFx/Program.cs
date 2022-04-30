@@ -8,9 +8,10 @@ if (args.Length < 2)
     return;
 }
 
+var relativePath = Path.GetRelativePath(args[1], args[0]);
 var mapFolderPaths = Directory.EnumerateDirectories(args[0]);
-var fxes = mapFolderPaths.Select(fp => (Material: new SdPbrMaterial(fp, Path.GetRelativePath(args[1], args[0]), new()), Name: Path.GetFileName(fp)));
-bool enableOverWrite = bool.TryParse(args[2], out var parsed) ? parsed : false;
+var fxes = mapFolderPaths.Select(fp => (Material: new SdPbrMaterial(fp, relativePath, new()), Name: Path.GetFileName(fp)));
+var enableOverWrite = bool.TryParse(args[2], out var parsed) && parsed;
 
 foreach (var (material, name) in fxes)
 {
