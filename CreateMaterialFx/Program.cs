@@ -12,7 +12,7 @@ var mapFolderPaths = Directory.EnumerateDirectories(args[0]);
 var fxes = mapFolderPaths.Select(fp => (Material: new SdPbrMaterial(fp, Path.GetRelativePath(args[1], fp), new()), Name: Path.GetFileName(fp)));
 bool.TryParse(args[2], out bool enableOverWrite);
 
-foreach (var fx in fxes)
+foreach (var (material, name) in fxes)
 {
-    fx.Material.Write(Path.Join(args[1], $"{fx.Name}.fx"), enableOverWrite);
+    material.Write(Path.Join(args[1], $"{name}.fx"), enableOverWrite);
 }
