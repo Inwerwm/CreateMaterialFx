@@ -13,7 +13,7 @@ public abstract class MaterialBase
 
     protected MaterialBase(string sourceDirectory, string embeddedPath, MapFileSelector selector)
     {
-        var dir = embeddedPath + (embeddedPath.LastOrDefault() == '/' ? "" : "/") + Path.GetFileName(sourceDirectory) + "/";
+        var dir = Path.Combine(embeddedPath, Path.GetFileName(sourceDirectory));
         var filenames = selector.SelectMapFiles(sourceDirectory);
 
         BaseColor = MakePath(filenames.BaseColor);
@@ -25,7 +25,7 @@ public abstract class MaterialBase
         AmbientOcclusion = MakePath(filenames.AmbientOcclusion);
         Height = MakePath(filenames.Height);
 
-        string? MakePath(string? filename) => filename is null ? null : dir + filename;
+        string? MakePath(string? filename) => filename is null ? null : Path.Combine(dir, filename).Replace("\\", "/");
     }
 
     public abstract void Write(string path, bool enableOverWrite);
