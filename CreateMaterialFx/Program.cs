@@ -10,7 +10,7 @@ if (args.Length < 2)
 
 var mapFolderPaths = Directory.EnumerateDirectories(args[0]);
 var fxes = mapFolderPaths.Select(fp => (Material: new SdPbrMaterial(fp, Path.GetRelativePath(args[1], fp), new()), Name: Path.GetFileName(fp)));
-bool.TryParse(args[2], out bool enableOverWrite);
+bool enableOverWrite = bool.TryParse(args[2], out var parsed) ? parsed : false;
 
 foreach (var (material, name) in fxes)
 {
