@@ -9,7 +9,7 @@ if (args.Length < 2)
 }
 
 var mapFolderPaths = Directory.EnumerateDirectories(args[0]);
-var fxes = mapFolderPaths.Select(fp => (Material: new SdPbrMaterial(fp, "../../../../_JulioSillet/Map", new()), Name: Path.GetFileName(fp)));
+var fxes = mapFolderPaths.Select(fp => (Material: new SdPbrMaterial(fp, Path.GetRelativePath(args[1], fp), new()), Name: Path.GetFileName(fp)));
 bool.TryParse(args[2], out bool enableOverWrite);
 
 foreach (var fx in fxes)
