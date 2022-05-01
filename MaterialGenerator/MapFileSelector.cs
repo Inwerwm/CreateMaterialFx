@@ -9,13 +9,13 @@ public class MapFileSelector
     {
         NamePattern = new()
         {
-            BaseColor = new[] { "diffuse", "basecolor", "base_color", "albedo" },
+            BaseColor = new[] { "diffuse", "basecolor", "base color", "base_color", "albedo" },
             SubSurface = new[] { "scattering" },
             Normal = new[] { "normal" },
             Roughness = new[] { "roughness", "smoothness" },
             Specular = new[] { "specular", "glossiness" },
             Metallic = new[] { "metallic", "metallness" },
-            AmbientOcclusion = new[] { "ambientocclusion", "ambient_occlusion" },
+            AmbientOcclusion = new[] { "ambientocclusion", "ambient occlusion", "ambient_occlusion" },
             Height = new[] { "height" },
         };
     }
